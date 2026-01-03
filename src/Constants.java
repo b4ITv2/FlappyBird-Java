@@ -20,6 +20,7 @@ public class Constants {
 
     public static final String GAME_PANEL_KEY = "GAME";
     public static final String HIGHSCORE_PANEL_KEY = "HIGHSCORE";
+    public static final String MENU_PANEL_KEY = "MENU";
 
     public static final Color PIPE_GREEN = Color.decode("#7db343");
     public static final Color BIRD_YELLOW = Color.decode("#fec400");

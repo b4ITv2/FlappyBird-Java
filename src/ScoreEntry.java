@@ -1,8 +1,8 @@
 import java.io.Serializable;
 
 public class ScoreEntry implements Comparable<ScoreEntry>, Serializable {
-    private String name;
-    private int score;
+    private final String name;
+    private final int score;
 
     public ScoreEntry(String name, int score) {
         this.name = name;

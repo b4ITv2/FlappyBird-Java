@@ -5,9 +5,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 public class SoundManager {
-    private Clip jumpClip;
-    private Clip scoreClip;
-    private Clip deathClip;
+    private final Clip jumpClip;
+    private final Clip scoreClip;
+    private final Clip deathClip;
 
     public SoundManager() {
         jumpClip = loadSound(Constants.JUMP_SOUND_PATH);

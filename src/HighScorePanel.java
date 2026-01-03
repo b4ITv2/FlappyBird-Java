@@ -3,10 +3,9 @@ import java.awt.*;
 import java.util.List;
 
 public class HighScorePanel extends JPanel {
-    private GameWindow gameWindow;
-    private JList<String> scoreListDisplay;
-    private DefaultListModel<String> listModel;
-    private DataManager dataManager;
+    private final GameWindow gameWindow;
+    private final DefaultListModel<String> listModel;
+    private final DataManager dataManager;
 
     public HighScorePanel(GameWindow gameWindow) {
         this.gameWindow = gameWindow;
@@ -20,7 +19,18 @@ public class HighScorePanel extends JPanel {
         this.add(titleLabel, BorderLayout.NORTH);
 
         listModel = new DefaultListModel<>();
-        scoreListDisplay = new JList<>(listModel);
+        JScrollPane jScrollPane = getJScrollPane();
+        this.add(jScrollPane, BorderLayout.CENTER);
+
+        JButton restaurantButton = new JButton("PLAY");
+        restaurantButton.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
+        restaurantButton.addActionListener(_ -> gameWindow.showGame());
+        restaurantButton.setBackground(Constants.PIPE_GREEN);
+        this.add(restaurantButton, BorderLayout.SOUTH);
+    }
+
+    private JScrollPane getJScrollPane() {
+        JList<String> scoreListDisplay = new JList<>(listModel);
         scoreListDisplay.setBackground(Constants.BACKGROUND_BLUE);
         scoreListDisplay.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 50));
 
@@ -28,14 +38,7 @@ public class HighScorePanel extends JPanel {
         defaultListCellRenderer.setHorizontalAlignment(SwingConstants.CENTER);
         scoreListDisplay.setCellRenderer(defaultListCellRenderer);
 
-        JScrollPane jScrollPane = new JScrollPane(scoreListDisplay);
-        this.add(jScrollPane, BorderLayout.CENTER);
-
-        JButton restaurantButton = new JButton("PLAY AGAIN");
-        restaurantButton.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
-        restaurantButton.addActionListener(_ -> gameWindow.showGame());
-        restaurantButton.setBackground(Constants.PIPE_GREEN);
-        this.add(restaurantButton, BorderLayout.SOUTH);
+        return new JScrollPane(scoreListDisplay);
     }
 
     public void refreshHighScores() {

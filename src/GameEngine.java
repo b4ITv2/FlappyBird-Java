@@ -7,15 +7,14 @@ import javax.swing.Timer;
 
 public class GameEngine implements ActionListener {
     private Bird bird;
-    private ArrayList<Pipe> pipes;
-    private Background background;
-    private Timer timer;
-    private GamePanel gamePanel;
+    private final ArrayList<Pipe> pipes;
+    private final Background background;
+    private final Timer timer;
+    private final GamePanel gamePanel;
     private int backgroundX;
     private int pipeSpawnCounter;
-    private boolean isGameOver;
     private int score;
-    private SoundManager soundManager;
+    private final SoundManager soundManager;
 
     public GameEngine(GamePanel gamePanel) {
         this.gamePanel = gamePanel;
@@ -24,20 +23,21 @@ public class GameEngine implements ActionListener {
         this.background = new Background();
         this.backgroundX = 0;
         this.pipeSpawnCounter = 0;
-        this.isGameOver = false;
         this.soundManager = new SoundManager();
 
         this.timer = new Timer(20, this);
-        start();
     }
 
     public void start() {
         timer.start();
     }
 
+    public void stop() {
+        timer.stop();
+    }
+
     public void restart() {
         score = 0;
-        isGameOver = false;
         pipes.clear();
         backgroundX = 0;
         bird = new Bird();
@@ -102,11 +102,10 @@ public class GameEngine implements ActionListener {
     }
 
     private void gameOver() {
-        isGameOver = true;
         timer.stop();
         System.out.println("GAME OVER!");
 
-         gamePanel.gameOver(score);
+        gamePanel.gameOver(score);
     }
 
     public void jump() {

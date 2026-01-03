@@ -28,10 +28,20 @@ public class MenuPanel extends JPanel {
 
         JButton scoreButton = new JButton("HIGH SCORES");
         scoreButton.addActionListener(_ -> gameWindow.showHighScores());
-        this.add(startButton, gridBagConstraints);
+        this.add(scoreButton, gridBagConstraints);
 
         JButton exitButton = new JButton("EXIT");
-        scoreButton.addActionListener(_ -> System.exit(0));
+        exitButton.addActionListener(_ -> System.exit(0));
         this.add(exitButton, gridBagConstraints);
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        if (background != null) {
+            g.drawImage(background.getImage(), 0, 0, getWidth(), getHeight(), null);
+        } else {
+            System.err.println("Error: Background image not found in menu!");
+        }
     }
 }
