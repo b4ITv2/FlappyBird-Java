@@ -34,9 +34,15 @@ public class GamePanel extends JPanel implements KeyListener {
     }
 
     public void gameOver(int score) {
-        String name = JOptionPane.showInputDialog(this,
+        String name = (String) JOptionPane.showInputDialog(
+                this,
                 "Game Over! Score: " + score + "\nType in your name",
-                JOptionPane.PLAIN_MESSAGE);
+                "High Score",
+                JOptionPane.PLAIN_MESSAGE,
+                null,
+                null,
+                "");
+
 
         if (name != null && !name.trim().isEmpty()) {
             DataManager dataManager = new DataManager();
@@ -52,7 +58,7 @@ public class GamePanel extends JPanel implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+        if (e.getKeyCode() == KeyEvent.VK_SPACE || e.getKeyCode() == KeyEvent.VK_UP || e.getKeyCode() == KeyEvent.VK_W) {
             gameEngine.jump();
         }
     }

@@ -8,11 +8,15 @@ public class SoundManager {
     private final Clip jumpClip;
     private final Clip scoreClip;
     private final Clip deathClip;
+    private final Clip hitClip;
+    private final Clip backgroundClip;
 
     public SoundManager() {
         jumpClip = loadSound(Constants.JUMP_SOUND_PATH);
         scoreClip = loadSound(Constants.SCORE_SOUND_PATH);
         deathClip = loadSound(Constants.DEATH_SOUND_PATH);
+        hitClip = loadSound(Constants.HIT_SOUND_PATH);
+        backgroundClip = loadSound(Constants.BACKGROUND_SOUND_PATH);
     }
 
     private Clip loadSound(String path) {
@@ -46,7 +50,7 @@ public class SoundManager {
             return;
         }
 
-        if(clip.isRunning()) {
+        if (clip.isRunning()) {
             clip.stop();
         }
 
@@ -64,5 +68,12 @@ public class SoundManager {
 
     public void playDeath() {
         play(deathClip);
+    }
+
+    public void playHit() {
+        play(hitClip);
+    }
+    public void playBackground() {
+        play(backgroundClip);
     }
 }

@@ -16,6 +16,9 @@ public class Constants {
     public static final String DEATH_SOUND_PATH = "sounds/death.wav";
     public static final String JUMP_SOUND_PATH = "sounds/jump.wav";
     public static final String SCORE_SOUND_PATH = "sounds/score.wav";
+    public static final String HIT_SOUND_PATH = "sounds/hit.wav";
+    public static final String BACKGROUND_SOUND_PATH = "sounds/background.wav";
+
 
 
     public static final String GAME_PANEL_KEY = "GAME";

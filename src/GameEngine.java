@@ -24,6 +24,7 @@ public class GameEngine implements ActionListener {
         this.backgroundX = 0;
         this.pipeSpawnCounter = 0;
         this.soundManager = new SoundManager();
+        this.soundManager.playBackground();
 
         this.timer = new Timer(20, this);
     }
@@ -89,6 +90,7 @@ public class GameEngine implements ActionListener {
             Rectangle topBounds = pipe.getTopBounds();
             Rectangle bottomBounds = pipe.getBottomBounds();
             if (topBounds.intersects(birdBounds) || bottomBounds.intersects(birdBounds)) {
+                soundManager.playHit();
                 soundManager.playDeath();
                 gameOver();
             }
