@@ -7,6 +7,7 @@ public class Constants {
     public static final int SCREEN_HEIGHT = 720;
     public static final int GRAVITY = 1;
     public static final int BIRD_X = 100;
+    public static final int JUMP_STRENGTH = -12;
 
     public static final String BIRD_IMAGE_PATH = "img/bird.png";
     public static final String UPPER_PIPE_IMAGE_PATH = "img/upper-pipe.png";

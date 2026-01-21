@@ -3,12 +3,10 @@ import java.awt.*;
 import java.util.List;
 
 public class HighScorePanel extends JPanel {
-    private final GameWindow gameWindow;
     private final DefaultListModel<String> listModel;
     private final DataManager dataManager;
 
     public HighScorePanel(GameWindow gameWindow) {
-        this.gameWindow = gameWindow;
         this.dataManager = new DataManager();
         this.setLayout(new BorderLayout());
 
@@ -22,11 +20,24 @@ public class HighScorePanel extends JPanel {
         JScrollPane jScrollPane = getJScrollPane();
         this.add(jScrollPane, BorderLayout.CENTER);
 
-        JButton restaurantButton = new JButton("PLAY");
-        restaurantButton.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
-        restaurantButton.addActionListener(_ -> gameWindow.showGame());
-        restaurantButton.setBackground(Constants.PIPE_GREEN);
-        this.add(restaurantButton, BorderLayout.SOUTH);
+        JButton restartButton = new JButton("PLAY");
+        restartButton.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
+        restartButton.addActionListener(_ -> gameWindow.showGame());
+        restartButton.setBackground(Constants.PIPE_GREEN);
+        this.add(restartButton, BorderLayout.WEST);
+
+
+        JButton menuButton = new JButton("MENU");
+        menuButton.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
+        menuButton.addActionListener(_ -> gameWindow.showMenu());
+        menuButton.setBackground(Constants.PIPE_GREEN);
+        this.add(menuButton, BorderLayout.EAST);
+
+        JButton exitButton = new JButton("EXIT");
+        exitButton.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
+        exitButton.addActionListener(_ -> System.exit(0));
+        exitButton.setBackground(Constants.PIPE_GREEN);
+        this.add(exitButton, BorderLayout.SOUTH);
     }
 
     private JScrollPane getJScrollPane() {

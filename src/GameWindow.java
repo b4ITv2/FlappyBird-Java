@@ -6,7 +6,6 @@ public class GameWindow extends JFrame {
     private final JPanel mainContainer;
     private final GamePanel gamePanel;
     private final HighScorePanel highScorePanel;
-    private final MenuPanel menuPanel;
 
     public GameWindow() {
         cardLayout = new CardLayout();
@@ -14,7 +13,7 @@ public class GameWindow extends JFrame {
 
         gamePanel = new GamePanel(this);
         highScorePanel = new HighScorePanel(this);
-        menuPanel = new MenuPanel(this);
+        MenuPanel menuPanel = new MenuPanel(this);
 
         mainContainer.add(gamePanel, Constants.GAME_PANEL_KEY);
         mainContainer.add(highScorePanel, Constants.HIGHSCORE_PANEL_KEY);
@@ -41,6 +40,6 @@ public class GameWindow extends JFrame {
     }
 
     public void showMenu() {
-        cardLayout.show(menuPanel, Constants.MENU_PANEL_KEY);
+        cardLayout.show(mainContainer, Constants.MENU_PANEL_KEY);
     }
 }

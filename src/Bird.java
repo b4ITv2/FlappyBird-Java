@@ -5,7 +5,6 @@ import java.io.File;
 import java.io.IOException;
 
 public class Bird {
-    private static final int JUMP_STRENGTH = -12;
     private int y;
     private int velocity;
     private int width, height;
@@ -29,7 +28,7 @@ public class Bird {
     }
 
     public void jump() {
-        velocity = JUMP_STRENGTH;
+        velocity = Constants.JUMP_STRENGTH;
     }
 
     public void draw(Graphics g) {

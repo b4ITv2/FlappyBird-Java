@@ -1,5 +1,10 @@
- ABEL:14
+ abel:15
+ABEL:14
+isti:13
+janka:11
+isti:10
 Abel:8
 Abel:7
-Abel:4
-janka:2
+jobb:7
+janka:5
+ Csongeeh:5

@@ -73,7 +73,8 @@ public class SoundManager {
     public void playHit() {
         play(hitClip);
     }
+
     public void playBackground() {
-        play(backgroundClip);
+        backgroundClip.loop(Clip.LOOP_CONTINUOUSLY);
     }
 }

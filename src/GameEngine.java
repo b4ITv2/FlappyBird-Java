@@ -29,14 +29,6 @@ public class GameEngine implements ActionListener {
         this.timer = new Timer(20, this);
     }
 
-    public void start() {
-        timer.start();
-    }
-
-    public void stop() {
-        timer.stop();
-    }
-
     public void restart() {
         score = 0;
         pipes.clear();
@@ -56,10 +48,9 @@ public class GameEngine implements ActionListener {
 
     private void moveBackground() {
         if (backgroundX - 1 <= -Constants.SCREEN_WIDTH) {
-           backgroundX = 0;
-        } else {
-            backgroundX -= 1;
+            backgroundX = 0;
         }
+        backgroundX -= 1;
     }
 
     private void movePipes() {
